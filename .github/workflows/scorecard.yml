@@ -1,0 +1,23 @@
+name: Scorecard
+
+on:
+  branch_protection_rule:
+  push:
+    branches:
+      - main
+
+permissions:
+  security-events: write
+  id-token: write
+  contents: read
+  actions: read
+
+jobs:
+
+  scorecard:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: ossf/scorecard-action@v2.4.0
